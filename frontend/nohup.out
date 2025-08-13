@@ -1,0 +1,22 @@
+npm ERR! Missing script: "start"
+npm ERR! 
+npm ERR! Did you mean one of these?
+npm ERR!     npm star # Mark your favorite packages
+npm ERR!     npm stars # View packages marked as favorites
+npm ERR! 
+npm ERR! To see a list of scripts, run:
+npm ERR!   npm run
+
+npm ERR! A complete log of this run can be found in:
+npm ERR!     /home/ubuntu/.npm/_logs/2025-08-12T06_12_52_057Z-debug-0.log
+
+> my-express-app@1.0.0 start
+> node app.js
+
+Frontend running on port 3000
+
+> my-express-app@1.0.0 start
+> node app.js
+
+Frontend running on port 3000
+Error: ENOENT: no such file or directory, stat '/home/ubuntu/Flaskapp_Docker/Docker-tutorial/frontend/form.html'
