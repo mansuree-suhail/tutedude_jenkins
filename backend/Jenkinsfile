@@ -19,7 +19,7 @@ pipeline {
         stage('Deploy') {
             steps {
                 sh '''
-                source venv/bin/activate           # activate virtual env before running app
+                . venv/bin/activate           # activate virtual env before running app
                 pm2 restart flask-app || pm2 start "python3 app.py" --name flask-app
                 '''
             }
