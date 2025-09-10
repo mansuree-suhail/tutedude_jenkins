@@ -8,13 +8,18 @@ pipeline {
         }
         stage('Install dependencies') {
             steps {
-                sh 'npm install'
+                dir('frontend') {  // change to your frontend folder
+                    sh 'npm install'
+                }
             }
         }
         stage('Deploy') {
             steps {
-                sh 'pm2 restart express-app || pm2 start "npm start" --name express-app'
+                dir('frontend') {  // run deployment from frontend folder
+                    sh 'pm2 restart express-app || pm2 start "node app.js" --name express-app'
+                }
             }
         }
     }
 }
+
