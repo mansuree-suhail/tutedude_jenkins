@@ -8,14 +8,22 @@ pipeline {
         }
         stage('Install dependencies') {
             steps {
-                sh 'python3 -m pip install --upgrade pip'
-                sh 'pip3 install -r requirements.txt'
+                sh '''
+                python3 -m venv venv               # create virtual environment
+                source venv/bin/activate           # activate it
+                pip install --upgrade pip
+                pip install -r requirements.txt
+                '''
             }
         }
         stage('Deploy') {
             steps {
-                sh 'pm2 restart flask-app || pm2 start "python3 app.py" --name flask-app'
+                sh '''
+                source venv/bin/activate           # activate virtual env before running app
+                pm2 restart flask-app || pm2 start "python3 app.py" --name flask-app
+                '''
             }
         }
     }
 }
+
