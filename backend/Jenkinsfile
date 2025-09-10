@@ -12,7 +12,7 @@ pipeline {
                 python3 -m venv venv               # create virtual environment
                 . venv/bin/activate           # activate it
                 pip install --upgrade pip
-                pip install -r requirements.txt
+                pip install -r backend/requirements.txt
                 '''
             }
         }
