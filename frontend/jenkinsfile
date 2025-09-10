@@ -1,0 +1,20 @@
+pipeline {
+    agent any
+    stages {
+        stage('Checkout') {
+            steps {
+                git 'https://github.com/mansuree-suhail/tutedude_jenkins.git'
+            }
+        }
+        stage('Install dependencies') {
+            steps {
+                sh 'npm install'
+            }
+        }
+        stage('Deploy') {
+            steps {
+                sh 'pm2 restart express-app || pm2 start "npm start" --name express-app'
+            }
+        }
+    }
+}
